@@ -19,8 +19,10 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+        child: RefreshIndicator(
+          onRefresh: cars.refreshCars,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
