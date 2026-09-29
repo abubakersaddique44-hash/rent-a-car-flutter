@@ -40,7 +40,7 @@ class CarProvider extends ChangeNotifier {
     _apply();
   }
 
-  void setSearchQuery(String q) {
+  /// Reloads car data and favorite status from local storage.\n  Future<void> refreshCars() async {\n    _allCars = HiveHelper.getAllCars();\n    if (_allCars.isEmpty) {\n      _allCars = DummyData.cars;\n      await HiveHelper.saveCars(_allCars);\n    }\n    for (var car in _allCars) {\n      car.isFavorite = HiveHelper.isFavorite(car.id);\n    }\n    _apply();\n  }\n\n  void setSearchQuery(String q) {
     _search = q;
     _apply();
   }
